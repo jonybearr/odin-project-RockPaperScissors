@@ -1,0 +1,7 @@
+
+
+a game of rock paper scissors is won 2 out of 3 rounds
+    for each round, the computer picks rps and the player picks rps
+        compare and announce winner
+        add point to scoreboard
+after last round, compare scoreboard and determine final winner
