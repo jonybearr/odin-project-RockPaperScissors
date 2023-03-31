@@ -85,6 +85,8 @@ const scissorsButton=document.querySelector("#scissors");
 const finishButton=document.querySelector("#finish");
 
 //add function reactions to them
+//the second parameter must be a function itself, not calling a function directly
+//so anonymous function is nice
 rockButton.addEventListener("click", function(){playRound('rock',getComputerChoice())});
 paperButton.addEventListener("click", function(){playRound('paper',getComputerChoice())});
 scissorsButton.addEventListener("click", function(){playRound('scissors',getComputerChoice())});
