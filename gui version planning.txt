@@ -1,0 +1,18 @@
+
+
+
+instead of runtime loop, run functions based on demand
+
+create counter variables first
+
+then wait until user presses a button before doing the processing
+    generate computer move
+    compare moves
+    print result
+    update scores
+
+
+so in this case each button press executes one round
+and after the round the result is added to the game counter
+
+
