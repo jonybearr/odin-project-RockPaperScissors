@@ -16,39 +16,10 @@ function getComputerChoice() {
     }
 }
 
-function playRound(playerSelection, computerSelection) {
-    //convert to lowercase
-    playerSelection = playerSelection.toLowerCase();
-    //print inputs
-    console.log('player chose ' + playerSelection)
-    console.log('computer chose '+computerSelection)
-    //determine winner for each possibility or tie
-    if (playerSelection == 'rock' && computerSelection == 'paper') {
-        console.log('computer won')
-        return 'computer'
-    }else if (playerSelection == 'rock' && computerSelection == 'scissors') {
-        console.log('player won')
-        return 'player'
-    }else if (playerSelection == 'paper' && computerSelection == 'scissors') {
-        console.log('computer won')
-        return 'computer'
-    } else if (playerSelection == 'paper' && computerSelection == 'rock') {
-        console.log('player won')
-        return 'player'
-    } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
-        console.log('computer won')
-        return 'computer'
-    } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
-        console.log('player won')
-        return 'player'
-    } else {
-        return 'tie'
-    }
 
-}
 
 //simplifies user input of three choices to numbers 1 2 and 3
-function userInput() {
+function getHumanChoice() {
     let inputValue=prompt('enter 1 for rock, 2 for paper, and 3 for scissors');
     if (inputValue == 1) {
         return 'rock'
@@ -56,9 +27,38 @@ function userInput() {
         return 'paper'
     } else if (inputValue == 3) {
         return 'scissors'
+    }
 }
-}
+//rock paper scissors logic
+function playRound(playerSelection, computerSelection) {
+    //print inputs
+    console.log('player chose ' + playerSelection)
+    console.log('computer chose '+computerSelection)
+    //determine winner for each possibility or tie
+    if (playerSelection == 'rock' && computerSelection == 'paper') {
+        console.log('computer won this round')
+        return 'computer'
+    }else if (playerSelection == 'rock' && computerSelection == 'scissors') {
+        console.log('player won this round')
+        return 'player'
+    }else if (playerSelection == 'paper' && computerSelection == 'scissors') {
+        console.log('computer won this round')
+        return 'computer'
+    } else if (playerSelection == 'paper' && computerSelection == 'rock') {
+        console.log('player won this round')
+        return 'player'
+    } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
+        console.log('computer won this round')
+        return 'computer'
+    } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
+        console.log('player won this round')
+        return 'player'
+    } else {
+        console.log('tie round')
+        return 'tie'
+    }
 
+}
 
 //game loop
 function game() {
@@ -66,7 +66,7 @@ function game() {
     let playerScore = 0;
     let computerScore = 0;
     for (let i=0; i<5; i++){
-        let result = playRound(userInput(),getComputerChoice());
+        let result = playRound(getHumanChoice(),getComputerChoice());
         if (result == 'player') {
             playerScore++;
         } else if (result == 'computer') {
@@ -77,15 +77,17 @@ function game() {
     }
 
     //after 5 rounds annouce final winners
+    console.log('game over!')
     console.log('rounds player won ' + playerScore);
     console.log('rounds computer won ' +computerScore);
     if(playerScore>computerScore){
-        console.log('player won!')
+        console.log('player won the match!')
     } else if (playerScore<computerScore){
-        console.log('computer won!')
+        console.log('computer won the match!')
     } else {
         console.log('it was a tie!')
     }
 }
 
+//run program
 game();
